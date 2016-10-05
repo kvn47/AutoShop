@@ -1,0 +1,4 @@
+ru:
+  application_name: 'Автомагазин'
+  helpers:
+    sign_out: "Выйти"
