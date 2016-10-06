@@ -14,7 +14,7 @@
 
   <body>
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a href="#" class="navbar-brand"><%= t 'application_name' %></a>
+      <a href="<%= home_path %>" class="navbar-brand"><%= t 'application_name' %></a>
       <%= render 'shared/navigation' if user_signed_in? %>
     </nav>
     <div class="container">

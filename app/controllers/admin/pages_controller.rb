@@ -1,5 +1,5 @@
 module Admin
-  class BaseController < ApplicationController
+  class PagesController < BaseController
 
     def index
       @orders = Order.active.ordered

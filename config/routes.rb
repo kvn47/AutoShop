@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'pages/index'
+  root 'pages#index'
 
   devise_for :users
 
-  root 'pages#index'
+  resources :orders, only: %i[new create show update]
 
   namespace :admin do
+    root 'pages#index'
     resources :components, except: :show
+    resources :orders, only: %i[index show update destroy]
   end
 end

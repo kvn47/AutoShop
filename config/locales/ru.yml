@@ -10,9 +10,26 @@ ru:
       edit:
         title: 'Редактирование Компонента'
 
+    orders:
+      index:
+        title: "Заказы"
+      edit:
+        title: :orders.edit.title
+
+    pages:
+      index:
+        title: 'Текущие Заказы'
+
+  orders:
+    new:
+      title: 'Новый Заказ'
+    edit:
+      title: 'Редактирование Заказа'
+
   helpers:
     sign_out: "Выйти"
     back: 'Назад'
+    show: 'Показать'
     edit: 'Редактировать'
     destroy: 'Удалить'
 
@@ -20,6 +37,9 @@ ru:
       component:
         create: 'Создать Компонент'
         update: 'Изменить Компонент'
+      order:
+        create: 'Создать Заказ'
+        update: 'Изменить Заказ'
 
   activerecord:
     attributes:
@@ -28,8 +48,16 @@ ru:
         name: 'Название'
         price: 'Цена'
         group: 'Группа'
-
       component/group:
         body: 'Кузов'
         engine: 'Двигатель'
         transmission: 'Трансмиссия'
+
+      order:
+        customer: 'Покупатель'
+        status: 'Статус'
+      order/status:
+        registered: 'Оформлен'
+        processing: 'Сборка'
+        ready: 'Готов'
+        issued: 'Выдан'

@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav">
-  <%= render 'shared/admin/navigation_links' if current_user.admin? %>
+  <%= render 'shared/admin/navigation_links' if current_user.is_admin? %>
   <li class="nav-item pull-xs-right">
     <%= link_to t('helpers.sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link' %>
   </li>
