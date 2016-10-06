@@ -1,4 +1,35 @@
 ru:
   application_name: 'Автомагазин'
+
+  admin:
+    components:
+      index:
+        title: "Компоненты"
+      new:
+        title: 'Новый Компонент'
+      edit:
+        title: 'Редактирование Компонента'
+
   helpers:
     sign_out: "Выйти"
+    back: 'Назад'
+    edit: 'Редактировать'
+    destroy: 'Удалить'
+
+    submit:
+      component:
+        create: 'Создать Компонент'
+        update: 'Изменить Компонент'
+
+  activerecord:
+    attributes:
+
+      component:
+        name: 'Название'
+        price: 'Цена'
+        group: 'Группа'
+
+      component/group:
+        body: 'Кузов'
+        engine: 'Двигатель'
+        transmission: 'Трансмиссия'

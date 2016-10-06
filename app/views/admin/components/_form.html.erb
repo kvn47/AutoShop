@@ -1,0 +1,14 @@
+<%= simple_form_for([:admin, component]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :group, as: :radio_buttons, collection: component_groups_collection, value_method: :first, label_method: :second %>
+    <%= f.input :name %>
+    <%= f.input :price, as: :decimal %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to t('helpers.back'), admin_components_path, class: 'btn btn-link' %>
+  </div>
+<% end %>

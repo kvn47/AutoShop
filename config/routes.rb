@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'pages#index'
+  root 'pages#index'
+
+  namespace :admin do
+    resources :components, except: :show
+  end
 end

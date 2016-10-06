@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t '.title' %></h1>
+
+<p><%= link_to t('admin.components.new.title'), new_admin_component_path, class: 'btn btn-secondary' %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Component.human_attribute_name :group %></th>
+      <th><%= Component.human_attribute_name :name %></th>
+      <th><%= Component.human_attribute_name :price %></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @components.each do |component| %>
+      <tr>
+        <td><%= component_group_name component.group %></td>
+        <td><%= component.name %></td>
+        <td><%= number_to_currency component.price, unit: '' %></td>
+        <td><%= link_to t('helpers.edit'), edit_admin_component_path(component) %></td>
+        <td><%= link_to t('helpers.destroy'), [:admin, component], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
