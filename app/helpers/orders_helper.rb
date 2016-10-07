@@ -5,6 +5,7 @@ module OrdersHelper
   end
 
   def order_action_button(order)
-    button_to 'Update', action: :update
+    _action = order.allowed_action_for current_user
+    _action ? button_to(_action[:presentation], {action: _action[:name]}, class: 'btn btn-primary', id: 'order-action') : ''
   end
 end

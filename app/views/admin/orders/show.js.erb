@@ -1,0 +1,4 @@
+var $orders = $('#orders');
+if($orders.length > 0) {
+  $orders.append('<%= j render('admin/orders/order', order: @order) %>');
+}

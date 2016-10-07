@@ -1,0 +1,43 @@
+<span id="order-<%= order.id %>" class="order" data-id="<%= order.id %>">
+  <% unless current_user == order.customer %>
+    <p>
+      <strong><%= Order.human_attribute_name :customer %>:</strong>
+       <%= order.customer.presentation %>
+    </p>
+  <% end %>
+
+  <p>
+    <strong><%= Order.human_attribute_name :status %>:</strong>
+    <span class="status"><%= order_status_name order.status %></span>
+  </p>
+
+  <p>
+    <strong><%= Order.human_attribute_name :components %>:</strong>
+    <table class="table">
+      <thead>
+      <tr>
+        <th><%= Component.human_attribute_name :name %></th>
+        <th><%= Component.human_attribute_name :price %></th>
+      </tr>
+      </thead>
+
+      <tfoot>
+      <tr>
+        <td><%= Order.human_attribute_name :total_sum %></td>
+        <td><%= currency order.total_sum %></td>
+      </tr>
+      </tfoot>
+
+      <tbody>
+        <% order.order_items.each do |order_item| %>
+          <tr>
+            <td><%= order_item.presentation %></td>
+            <td><%= currency order_item.price %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </p>
+
+  <%= order_action_button @order %>
+</span>

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[show udpate destroy]
+  before_action :set_order, only: %i[show new update receive destroy]
 
   def new
     @components = Component.all
@@ -26,6 +26,13 @@ class OrdersController < ApplicationController
       else
         format.html { render :show }
       end
+    end
+  end
+
+  def receive
+    @order = UpdateOrder.(@order, status: 'issued')
+    respond_to do |format|
+      format.html { redirect_to root_path }
     end
   end
 

@@ -16,7 +16,16 @@ class CreateOrder
     components.each do |component|
       order.order_items.build component_id: component.id, price: component.price
     end
-    order.save
+    if order.save
+      notify_admin order
+    end
     return order
+  end
+
+  private
+
+  def notify_admin(order)
+    # AdminOrdersChannel.broadcast_to 'admin_orders', id: order.id
+    ActionCable.server.broadcast 'admin_orders', id: order.id
   end
 end

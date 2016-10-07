@@ -27,6 +27,9 @@ ru:
       title: 'Редактирование Заказа'
     show:
       title: 'Ваш текущий Заказ'
+    to_assembling: 'На сборку'
+    ready: 'Готов'
+    received: 'Получен'
 
   helpers:
     sign_out: "Выйти"
@@ -62,6 +65,6 @@ ru:
         total_sum: 'Итоговая сумма'
       order/status:
         registered: 'Оформлен'
-        processing: 'Сборка'
+        assembling: 'Сборка'
         ready: 'Готов'
         issued: 'Выдан'

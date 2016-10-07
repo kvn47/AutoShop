@@ -1,6 +1,6 @@
 module Admin
   class OrdersController < BaseController
-    before_action :set_order, only: [:show, :update, :destroy]
+    before_action :set_order, only: %i[show update assembly ready destroy]
 
     def index
       @orders = Order.ordered
@@ -19,10 +19,32 @@ module Admin
       end
     end
 
+    def assembly
+      @order = UpdateOrder.(@order, status: 'assembling')
+      respond_to do |format|
+        if @order.assembling?
+          format.html { redirect_to '/admin' }
+        else
+          format.html { redirect_to [:admin, @order] }
+        end
+      end
+    end
+
+    def ready
+      @order = UpdateOrder.(@order, status: 'ready')
+      respond_to do |format|
+        if @order.ready?
+          format.html { redirect_to '/admin' }
+        else
+          format.html { redirect_to [:admin, @order] }
+        end
+      end
+    end
+
     def destroy
       @order.destroy
       respond_to do |format|
-        format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+        format.html { redirect_to '/admin', notice: 'Order was successfully destroyed.' }
       end
     end
 
