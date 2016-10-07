@@ -13,7 +13,6 @@
       <td><%= order.customer.presentation %></td>
       <td><%= order_status_name order.status %></td>
       <td><%= link_to t('helpers.show'), [:admin, order] %></td>
-      <td><%= link_to t('helpers.edit'), edit_admin_order_path(order) %></td>
       <td><%= link_to t('helpers.destroy'), order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>

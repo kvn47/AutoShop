@@ -1,11 +1,19 @@
 class OrdersController < ApplicationController
-  before_action :set_order
+  before_action :set_order, only: %i[show udpate destroy]
 
   def new
+    @components = Component.all
   end
 
   def create
-
+    @order = CreateOrder.(current_user, order_params)
+    respond_to do |format|
+      if @order.persisted?
+        format.html { redirect_to @order, notice: 'Order created.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def show
@@ -14,9 +22,9 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Order was successfully updated.' }
       else
-        format.html { render :edit }
+        format.html { render :show }
       end
     end
   end
@@ -35,6 +43,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:order).permit(component_groups: [:component_id])
   end
 end

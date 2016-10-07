@@ -25,6 +25,8 @@ ru:
       title: 'Новый Заказ'
     edit:
       title: 'Редактирование Заказа'
+    show:
+      title: 'Ваш текущий Заказ'
 
   helpers:
     sign_out: "Выйти"
@@ -45,7 +47,7 @@ ru:
     attributes:
 
       component:
-        name: 'Название'
+        name: 'Наименование'
         price: 'Цена'
         group: 'Группа'
       component/group:
@@ -56,6 +58,8 @@ ru:
       order:
         customer: 'Покупатель'
         status: 'Статус'
+        components: 'Компоненты'
+        total_sum: 'Итоговая сумма'
       order/status:
         registered: 'Оформлен'
         processing: 'Сборка'
