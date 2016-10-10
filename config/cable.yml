@@ -4,6 +4,9 @@ development:
 test:
   adapter: async
 
-production:
+production: &production
   adapter: redis
-  url: <%= ENV.fetch('REDISTOGO_URL') %>
+  url: <%= ENV['REDIS_URL'] %>
+
+staging:
+  <<: *production
